@@ -11,40 +11,35 @@ document.addEventListener('keydown',function(e){
 
     switch (e.key){
         case 'ArrowUp':
-            // Move pawn up where it will not go above the top row (row 1)
-            if (checkWall(pawn,walls,"up")){
-                break;
-            } else {
-                rowPos = Math.max(rowPos - 1, 1);
-                break;
-            }        
-                
+            if (!checkWall(pawn,walls,'up')) {
+                rowPos = rowPos - 1;
+                console.log('new position w/o collision')
+            }
+            break;        
+              //* need to figure out how to move the pawn
         case 'ArrowDown':
-            // Move pawn down where it will not go below the last row (row 2)
-           if (checkWall(pawn,walls,"down")){
-                break;
-           } else {
-             rowPos = Math.min(rowPos + 1, totalColumns);
+            if (!checkWall(pawn,walls,'down')) {
+                if (rowPos === 12){
+                    console.log('cannot move down because row is 12')
+                    break;
+                } else {
+                    rowPos = rowPos + 1;
+                }
+
+            }
             break;
-           }
            
         case 'ArrowLeft' :
-            // Move pawn left where it will not go further left than column 1
-           if (checkWall(pawn,walls,"left")){
-            break;
-           } else {
-            columnPos = Math.max(columnPos - 1, 1);
-            break;
-           }
-        case 'ArrowRight' :
-            // Move pawn right where it will not go further right than column 12
-            if (checkWall(pawn,walls, "right")){
-                break;
-            } else {
-            columnPos = Math.min(columnPos + 1, totalColumns);
-            break;
+            if (!checkWall(pawn,walls, 'left')) {
+                columnPos = columnPos - 1;
             }
+            break;
 
+        case 'ArrowRight' :
+            if (!checkWall(pawn,walls,'right')) {
+                columnPos = columnPos + 1;
+            }
+            break;
     }
 
     pawn.style.gridColumnStart = columnPos;
@@ -72,34 +67,48 @@ function checkCollision(element1, element2){
     );
 
 }
-function checkWall(element1, walls, direction){
-    const rect1 = element1.getBoundingClientRect();
+function checkWall(element1, walls, direction) {
+    const rowPos = parseInt(element1.style.gridRow || window.getComputedStyle(element1).gridRow, 10)
+    const columnPos = parseInt(element1.style.gridColumn || window.getComputedStyle(element1).gridColumn, 10);
 
-    for (let i = 0; i<walls.length; i++){
+    
+    for (let i = 0; i < walls.length; i++) {
+        const computedStyle = window.getComputedStyle(walls[i]);
+        const wallRow = parseInt(computedStyle.gridRow, 10);
+        // this gets the wall row and column spots in int 
+        const wallColumn = parseInt(computedStyle.gridColumn, 10);
 
-
-    const rect2 = walls[i].getBoundingClientRect();
-
-    switch (direction){
-        case "up":
-           if (rect1.top > rect2.bottom) { return true;}
-            break;
-        case "down":
-            if (rect1.bottom < rect2.top) {return true;}
-            break;
-        case "left":
-            if (rect1.left > rect2.right) {return true;}
-            break;
-        case "right":
-            if (rect1.right < rect2.left) {return true;}
-            break;
-        default:
-            return false;
-        
+        // check if the 
+        switch (direction) {
+            case 'up':
+                // check if the wall is in the next row above (so row num of the pawn and the wallrow -1)
+                if (wallRow === rowPos - 1 && wallColumn === columnPos) {
+                    return true; // Collision with wall above
+                }
+                break;
+            case 'down':
+                if (wallRow === rowPos + 1 && wallColumn === columnPos) {
+                    return true; // Collision with wall below
+                }
+                break;
+            case 'left':
+                if (wallRow === rowPos && wallColumn === columnPos - 1) {
+                    return true; // Collision with wall to the left
+                }
+                break;
+            case 'right':
+                if (wallRow === rowPos && wallColumn === columnPos + 1) {
+                    return true; // Collision with wall to the right
+                }
+                break;
+            default:
+                return false;
+        }
     }
+
+    return false;
 }
 
-}
 
 function returnPosition(element){
     // function that returns column or row position of pawn
