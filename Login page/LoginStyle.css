@@ -14,12 +14,20 @@ body{
 }
 
 button{
-    margin-top: 10px;
-    width: 62%;
+    margin-top: 5px;
+    width: 67%;
     font-family: 'Montserrat';
+    border-radius: 50px;
+    border-width: 0.5px;
+    padding: 5px 10px 5px 10px;
 
 }
 
-.user-input-box{
-    margin-left: 20px;
+.user-input-box input{
+    border-radius: 50px;
+    margin-right: 18px;
+    margin-top: 5px;
+    border-width: 0.5px;
+    padding: 5px 10px 5px 10px;
 }
+
