@@ -1,0 +1,25 @@
+
+.box{
+    margin: auto;
+    padding: 10px;
+    width: 50%;
+    border-style: dotted;
+    border-width: 3px;
+    text-align:center;
+
+}
+body{
+    padding: 100px;
+    font-family: 'Montserrat';
+}
+
+button{
+    margin-top: 10px;
+    width: 62%;
+    font-family: 'Montserrat';
+
+}
+
+.user-input-box{
+    margin-left: 20px;
+}
