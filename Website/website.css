@@ -1,32 +1,109 @@
 body{
     background-color: #fdf7e4;
+    color: #817660;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    
 }
 .refs{
     display: flex;
     margin-left: 40%;
+    font-weight: bold;
 
 }
 .refs div{
     padding: 10px;
+    
 }
 
 .Intro-container{
     background-color: #faeed1;
-    width: 30%;
+    width: 200px;
     padding: 10px;
+
 }
 .Text1{
     background-color: #faeed1;
-    width: 30%;
+    width: 200px;
     padding:10px;
+    margin-left: 10%;
+    margin-top: -50px;
+
 }
 .About-Me{
-    margin-top: 20px;
-    display: flex;
+    min-height: 100vh;
+background-color: #fefbf4;
+display: flex;
+justify-content: left;
+align-items: center;
+
 }
+
 .Text2{
     background-color: #faeed1;
-    width: 30%;
+    width: 200px;
     padding:10px;
     margin-left: 20px;
+    display: inline-block;
+}
+.first-page{
+min-height: 100vh;
+display: flex;
+margin-left: 20%;
+justify-content: left;
+align-items: center;
+}
+.Title{
+    margin-top: -90vh;
+    margin-left: 20px;
+}
+
+.Hobbies{
+    min-height: 200vh;
+background-color: #fefbf4;
+margin-top: -10px;
+}
+.Hobbies-1{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+.Text4{
+    background-color: #faeed1;
+    width: 200px;
+    padding:10px;
+    margin-top: 20px;
+    margin-right: auto;
+    margin-left: 30%;
+
+}
+.Text3{
+    background-color: #faeed1;
+    width: 200px;
+    padding:10px;
+    margin-right: auto;
+    margin-left: 20%;
+    margin-top: 10px;
+    height: fit-content;
+}
+.Text5{
+    background-color: #faeed1;
+    width: 200px;
+    padding:10px;
+    margin-top: 10%;
+    margin-left: 10%;
+
+}
+.Text6{
+    background-color: #faeed1;
+    width: 200px;
+    padding:10px;
+    margin-top: 20px;
+
+}
+.Text7{
+    background-color: #faeed1;
+    width: 200px;
+    padding:10px;
+    margin-top: 20px;
+
 }
