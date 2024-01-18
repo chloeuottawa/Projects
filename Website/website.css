@@ -9,3 +9,24 @@ body{
 .refs div{
     padding: 10px;
 }
+
+.Intro-container{
+    background-color: #faeed1;
+    width: 30%;
+    padding: 10px;
+}
+.Text1{
+    background-color: #faeed1;
+    width: 30%;
+    padding:10px;
+}
+.About-Me{
+    margin-top: 20px;
+    display: flex;
+}
+.Text2{
+    background-color: #faeed1;
+    width: 30%;
+    padding:10px;
+    margin-left: 20px;
+}
